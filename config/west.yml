@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/tokyo2006
     - name: englmaxi
       url-base: https://github.com/englmaxi
+    - name: essenceotd
+      url-base: https://github.com/essenceotd
   projects:
     - name: mario-peripheral-animation
       remote: gpeye
@@ -36,5 +38,8 @@ manifest:
     - name: zmk-dongle-display
       remote: englmaxi
       revision: v0.3
+    - name: zmk_driver_azoteq
+      remote: essenceotd
+      revision: af570230ceb629f7b49c643e67b3e91ef4503d19
   self:
     path: config

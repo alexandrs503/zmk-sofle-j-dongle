@@ -1,0 +1,5 @@
+# Add-on shield: Azoteq TPS65 trackpad on the right half (Version D, no display).
+# Build after the right half: shield: eyelash_sofle_peripheral_right tps65_right
+
+config SHIELD_TPS65_RIGHT
+    def_bool $(shields_list_contains,tps65_right)

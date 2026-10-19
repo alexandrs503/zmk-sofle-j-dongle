@@ -1,0 +1,69 @@
+/*
+ * Azoteq TPS65 trackpad (IQS550, I2C 0x74) on the right half.
+ * Wired to the display pads (nice!view connector), see docs D2:
+ *   SDA = P0.17 (P1), SCL = P0.20 (P4), RDY = P0.06 (P3), 3V3 = P2, GND = P5.
+ *   RST = header 1.04 (P1.04), optional.
+ * Version D has no display, so spi0 (nice!view) is off and its pins go to i2c1.
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&nice_view_spi {
+    status = "disabled";
+};
+
+&pinctrl {
+    i2c1_default: i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
+        };
+    };
+
+    i2c1_sleep: i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
+            low-power-enable;
+        };
+    };
+};
+
+&i2c1 {
+    status = "okay";
+    compatible = "nordic,nrf-twim";
+    clock-frequency = <I2C_BITRATE_FAST>;
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    tps65_right: trackpad@74 {
+        compatible = "azoteq,tps43";
+        reg = <0x74>;
+        status = "okay";
+
+        rdy-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+        /* RST is active low. The driver sets 0 then 1, so ACTIVE_HIGH is right. */
+        rst-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+
+        /* Suspend the pad when ZMK sleeps. No idle-sleep: see docs, battery saving. */
+        enable-power-management;
+
+        /* All gestures off: no single-tap, two-finger-tap, three-finger-tap,
+         * press-and-hold, scroll, swipes or zoom. The pad only reports X/Y.
+         */
+    };
+};
+
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        tps65_right_split: tps65_right_split@1 {
+            compatible = "zmk,input-split";
+            reg = <1>;
+            device = <&tps65_right>;
+        };
+    };
+};

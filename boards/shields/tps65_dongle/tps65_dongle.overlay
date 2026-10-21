@@ -1,0 +1,28 @@
+/*
+ * Dongle side of the TPS65 trackpad on the right half (task 04).
+ * The right half sends pad movement over the split link as input-split reg 1
+ * (same reg as tps65_right_split in tps65_right.overlay). Here it becomes
+ * cursor movement.
+ *
+ * Speed, rotation and axis direction: the runtime input processor
+ * (cormoran module, already on in the dongle .conf), changeable at run time
+ * without a new build. Its includes come from eyelash_sofle_central_dongle.overlay.
+ */
+
+/ {
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        tps65_right_split: tps65_right_split@1 {
+            compatible = "zmk,input-split";
+            reg = <1>;
+        };
+    };
+
+    tps65_right_listener: tps65_right_listener {
+        compatible = "zmk,input-listener";
+        device = <&tps65_right_split>;
+        input-processors = <&mouse_runtime_input_processor>;
+    };
+};

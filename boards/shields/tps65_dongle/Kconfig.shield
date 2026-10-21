@@ -1,0 +1,5 @@
+# Add-on shield: dongle side of the TPS65 trackpad on the right half.
+# Build after the dongle: shield: eyelash_sofle_central_dongle dongle_display tps65_dongle
+
+config SHIELD_TPS65_DONGLE
+    def_bool $(shields_list_contains,tps65_dongle)

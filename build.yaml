@@ -5,6 +5,12 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: eyelash_sofle_central_dongle_oled
+  # Trackpad target (task 04): stock dongle + input from the right half's TPS65.
+  - board: nice_nano_v2
+    shield: eyelash_sofle_central_dongle dongle_display tps65_dongle
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
+    artifact-name: eyelash_sofle_central_dongle_oled_tps65
   - board: nice_nano_v2
     shield: eyelash_sofle_peripheral_left nice_view 
   - board: nice_nano_v2

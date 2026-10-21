@@ -17,6 +17,13 @@ include:
     shield: eyelash_sofle_peripheral_right tps65_right
     cmake-args: -DCONFIG_ZMK_DISPLAY=n
     artifact-name: eyelash_sofle_peripheral_right_tps65
+  # Debug target (task 04 step 1b): right half + TPS65 + USB logging.
+  # Prints key scan, split link and trackpad driver messages to a USB serial port.
+  - board: nice_nano_v2
+    shield: eyelash_sofle_peripheral_right tps65_right
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_DISPLAY=n
+    artifact-name: eyelash_sofle_peripheral_right_tps65_usblog
   # Debug target (task 03 step 7): stock left half + USB logging.
   # Prints key scan and split link messages to a USB serial port.
   - board: nice_nano_v2

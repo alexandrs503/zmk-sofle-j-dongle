@@ -1,0 +1,6 @@
+# Add-on shield (test, task 04c step 10e E5): TPS65 on the right half with the
+# AYM1607 IQS5xx driver. Use instead of tps65_right:
+#   shield: eyelash_sofle_peripheral_right tps65_right_aym
+
+config SHIELD_TPS65_RIGHT_AYM
+    def_bool $(shields_list_contains,tps65_right_aym)

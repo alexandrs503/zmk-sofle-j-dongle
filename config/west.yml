@@ -12,6 +12,8 @@ manifest:
       url-base: https://github.com/englmaxi
     - name: essenceotd
       url-base: https://github.com/essenceotd
+    - name: aym1607
+      url-base: https://github.com/AYM1607
   projects:
     - name: mario-peripheral-animation
       remote: gpeye
@@ -41,5 +43,8 @@ manifest:
     - name: zmk_driver_azoteq
       remote: essenceotd
       revision: af570230ceb629f7b49c643e67b3e91ef4503d19
+    - name: zmk-driver-azoteq-iqs5xx
+      remote: aym1607
+      revision: 27321f0232b50f0af31eb27ff97d539933467ea4
   self:
     path: config

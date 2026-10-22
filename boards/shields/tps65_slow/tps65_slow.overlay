@@ -1,0 +1,9 @@
+/*
+ * Test (task 04 step 10e E4): run the TPS65 I2C bus at 100 kHz instead of
+ * 400 kHz, to rule out signal quality on ~10 cm wires with middle joints.
+ * Only the bus speed changes; pins stay as in tps65_right.
+ */
+
+&i2c1 {
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+};

@@ -1,0 +1,5 @@
+# Add-on shield (test, task 04 step 10e E4): TPS65 I2C bus at 100 kHz.
+# Build after tps65_right: shield: eyelash_sofle_peripheral_right tps65_right tps65_slow
+
+config SHIELD_TPS65_SLOW
+    def_bool $(shields_list_contains,tps65_slow)

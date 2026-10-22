@@ -1,0 +1,5 @@
+# Add-on shield (test, task 04 step 10d): swaps SDA and SCL of the TPS65 bus.
+# Build after tps65_right: shield: eyelash_sofle_peripheral_right tps65_right tps65_swap
+
+config SHIELD_TPS65_SWAP
+    def_bool $(shields_list_contains,tps65_swap)

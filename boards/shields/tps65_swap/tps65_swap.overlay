@@ -1,0 +1,23 @@
+/*
+ * Test (task 04 step 10d): SDA and SCL swapped on the TPS65 bus.
+ * tps65_right uses SDA = P0.17, SCL = P0.20. If the P1/P4 pads are the other
+ * way round, every I2C read times out. This overrides only the i2c1 pins:
+ * SDA = P0.20, SCL = P0.17. Same two pins, both open-drain on both sides.
+ */
+
+&pinctrl {
+    i2c1_default: i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 20)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 17)>;
+        };
+    };
+
+    i2c1_sleep: i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 20)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 17)>;
+            low-power-enable;
+        };
+    };
+};

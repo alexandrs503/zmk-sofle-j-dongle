@@ -61,6 +61,18 @@ include:
     shield: eyelash_sofle_peripheral_right tps65_right_aym
     cmake-args: -DCONFIG_ZMK_DISPLAY=n
     artifact-name: eyelash_sofle_peripheral_right_aym
+  # Trackpad target (task 07 step 2): left half with the AYM1607 driver, no logging.
+  # No nice_view, display off, roller off (in the overlay): P0.06/P0.17/P0.20 and P1.10 only for the pad.
+  - board: nice_nano_v2
+    shield: eyelash_sofle_peripheral_left tps65_left_aym
+    cmake-args: -DCONFIG_ZMK_DISPLAY=n
+    artifact-name: eyelash_sofle_peripheral_left_aym
+  # Debug target (task 07 step 2): as above, with USB logging held 45 s (for step 6 if the pad fails).
+  - board: nice_nano_v2
+    shield: eyelash_sofle_peripheral_left tps65_left_aym
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_DISPLAY=n -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=45000 -DCONFIG_LOG_BUFFER_SIZE=16384 -DCONFIG_LOG_MODE_OVERFLOW=n
+    artifact-name: eyelash_sofle_peripheral_left_aym_late
   # Debug target (task 03 step 7): stock left half + USB logging.
   # Prints key scan and split link messages to a USB serial port.
   - board: nice_nano_v2

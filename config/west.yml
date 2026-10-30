@@ -20,9 +20,16 @@ manifest:
     - name: mario-peripheral-animation
       remote: gpeye
       revision: 1aa3950d6c86b4240b3f79d06bdbb04c5d920711  # main
+    - name: zmk
+      remote: cormoran
+      revision: 4493783ef88ce2e653bf8217c92ee17140df71e3  # v0.3-branch+dya
+      import: app/west.yml
     # Zephyr comes from zmk's app/west.yml on a branch (v3.5.0+zmk-fixes).
     # Listed here to pin it: this entry wins over the imported one.
     # Same import blocklist as zmk's app/west.yml (cormoran zmk 4493783).
+    # Keep it after zmk: imports are read in order and the first entry wins,
+    # so zmk's nanopb (pinned) must come before Zephyr's ("optional" group,
+    # skipped by default; the dongle's Studio build needs nanopb).
     - name: zephyr
       remote: zmkfirmware
       revision: dacab4875df72109b96cc8977547a0dc04875bcd  # v3.5.0+zmk-fixes
@@ -47,10 +54,6 @@ manifest:
           - openthread
           - edtt
           - trusted-firmware-m
-    - name: zmk
-      remote: cormoran
-      revision: 4493783ef88ce2e653bf8217c92ee17140df71e3  # v0.3-branch+dya
-      import: app/west.yml
     - name: zmk-behavior-runtime-sensor-rotate
       remote: cormoran
       revision: 8b1125ed676c1f5e14145d217984f33d0ebdcef4  # main

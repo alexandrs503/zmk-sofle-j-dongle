@@ -14,32 +14,61 @@ manifest:
       url-base: https://github.com/essenceotd
     - name: aym1607
       url-base: https://github.com/AYM1607
+  # All modules pinned to exact commits (task 08 step 0); the branch each
+  # followed before is in the comment.
   projects:
     - name: mario-peripheral-animation
       remote: gpeye
-      revision: main
+      revision: 1aa3950d6c86b4240b3f79d06bdbb04c5d920711  # main
+    # Zephyr comes from zmk's app/west.yml on a branch (v3.5.0+zmk-fixes).
+    # Listed here to pin it: this entry wins over the imported one.
+    # Same import blocklist as zmk's app/west.yml (cormoran zmk 4493783).
+    - name: zephyr
+      remote: zmkfirmware
+      revision: dacab4875df72109b96cc8977547a0dc04875bcd  # v3.5.0+zmk-fixes
+      clone-depth: 1
+      import:
+        name-blocklist:
+          - ci-tools
+          - hal_altera
+          - hal_cypress
+          - hal_infineon
+          - hal_microchip
+          - hal_nxp
+          - hal_openisa
+          - hal_silabs
+          - hal_xtensa
+          - hal_st
+          - hal_ti
+          - loramac-node
+          - mcuboot
+          - mcumgr
+          - net-tools
+          - openthread
+          - edtt
+          - trusted-firmware-m
     - name: zmk
       remote: cormoran
-      revision: v0.3-branch+dya
+      revision: 4493783ef88ce2e653bf8217c92ee17140df71e3  # v0.3-branch+dya
       import: app/west.yml
     - name: zmk-behavior-runtime-sensor-rotate
       remote: cormoran
-      revision: main
+      revision: 8b1125ed676c1f5e14145d217984f33d0ebdcef4  # main
     - name: zmk-module-ble-management
       remote: cormoran
-      revision: zmk-v0.3.0.0
+      revision: 851661cd21f2aded8ec649da86e01a207dc4b973  # zmk-v0.3.0.0
     - name: zmk-module-battery-history
       remote: cormoran
-      revision: main
+      revision: 307755dd2ad4d320e14de162e8e5ef018f29d929  # main
     - name: zmk-module-settings-rpc
       remote: cormoran
-      revision: main
+      revision: 78f86df9e6c5edaf57bef3ccbd7f360cfdf49291  # main
     - name: zmk-module-runtime-input-processor
       remote: cormoran
-      revision: zmk-v0.3.0.0
+      revision: dbf92f764de8b6ffd60bf5850514302875fe2570  # zmk-v0.3.0.0
     - name: zmk-dongle-display
       remote: englmaxi
-      revision: v0.3
+      revision: c6c4be11c5ede722086a2a1f355cec9c101b9390  # v0.3
     - name: zmk_driver_azoteq
       remote: essenceotd
       revision: af570230ceb629f7b49c643e67b3e91ef4503d19

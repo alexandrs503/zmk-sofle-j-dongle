@@ -20,15 +20,6 @@
     status = "disabled";
 };
 
-/* Version D has no backlight LEDs: backlight removed (D7, task 08 step 7b). */
-&backlight {
-    status = "disabled";
-};
-
-&pwm0 {
-    status = "disabled";
-};
-
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {

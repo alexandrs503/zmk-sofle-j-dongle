@@ -68,12 +68,24 @@ include:
     shield: eyelash_sofle_peripheral_right tps65_right_aym
     cmake-args: -DCONFIG_ZMK_DISPLAY=n -DCONFIG_ZMK_IDLE_SLEEP_TIMEOUT=60000 -DCONFIG_USB_DEVICE_STACK=n -DCONFIG_ZMK_RGB_UNDERGLOW_ON_START=n
     artifact-name: eyelash_sofle_peripheral_right_aym_1min
+  # Test target (task 08 step 6b), not for daily use: as above + pad held in reset while asleep,
+  # deep sleep after 1 min, no USB stack (as step 4b).
+  - board: nice_nano_v2
+    shield: eyelash_sofle_peripheral_right tps65_right_aym tps65_sleepreset_right
+    cmake-args: -DCONFIG_ZMK_DISPLAY=n -DCONFIG_ZMK_IDLE_SLEEP_TIMEOUT=60000 -DCONFIG_USB_DEVICE_STACK=n -DCONFIG_ZMK_RGB_UNDERGLOW_ON_START=n
+    artifact-name: eyelash_sofle_peripheral_right_aym_sleepreset_1min
   # Trackpad target (task 07 step 2): left half with the AYM1607 driver, no logging.
   # No nice_view, display off, roller off (in the overlay): P0.06/P0.17/P0.20 and P1.10 only for the pad.
   - board: nice_nano_v2
     shield: eyelash_sofle_peripheral_left tps65_left_aym
     cmake-args: -DCONFIG_ZMK_DISPLAY=n
     artifact-name: eyelash_sofle_peripheral_left_aym
+  # Test target (task 08 step 6b), not for daily use: as above + pad held in reset while asleep,
+  # deep sleep after 1 min, no USB stack (as step 4b).
+  - board: nice_nano_v2
+    shield: eyelash_sofle_peripheral_left tps65_left_aym tps65_sleepreset_left
+    cmake-args: -DCONFIG_ZMK_DISPLAY=n -DCONFIG_ZMK_IDLE_SLEEP_TIMEOUT=60000 -DCONFIG_USB_DEVICE_STACK=n -DCONFIG_ZMK_RGB_UNDERGLOW_ON_START=n
+    artifact-name: eyelash_sofle_peripheral_left_aym_sleepreset_1min
   # Debug target (task 07 step 2): as above, with USB logging held 45 s (for step 6 if the pad fails).
   - board: nice_nano_v2
     shield: eyelash_sofle_peripheral_left tps65_left_aym

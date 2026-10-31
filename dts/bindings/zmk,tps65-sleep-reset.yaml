@@ -1,0 +1,14 @@
+# Task 08 step 6 (D14): holds the TPS65 (IQS550) pad in reset while
+# ZMK is in deep sleep or soft-off, instead of letting it run in LP2.
+
+description: Hold a TPS65 trackpad in reset while the half sleeps
+
+compatible: "zmk,tps65-sleep-reset"
+
+include: base.yaml
+
+properties:
+  reset-gpios:
+    type: phandle-array
+    required: true
+    description: The pad's RST line, the same pin as the trackpad driver's reset-gpios

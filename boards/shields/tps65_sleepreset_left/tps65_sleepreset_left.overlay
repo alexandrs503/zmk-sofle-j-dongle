@@ -1,0 +1,14 @@
+/*
+ * Test (task 08 step 6b): hold the left TPS65 in reset while ZMK
+ * sleeps or is soft-off (src/tps65_sleep_reset.c). Same RST pin as the
+ * trackpad node in tps65_left_aym: P1.10 (hole H5), active low.
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+    tps65_sleep_reset: tps65_sleep_reset {
+        compatible = "zmk,tps65-sleep-reset";
+        reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
+    };
+};

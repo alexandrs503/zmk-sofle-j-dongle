@@ -1,0 +1,5 @@
+# Add-on shield (test, task 08 step 6b): hold the right TPS65 in reset while the half sleeps.
+#   shield: eyelash_sofle_peripheral_right tps65_right_aym tps65_sleepreset_right
+
+config SHIELD_TPS65_SLEEPRESET_RIGHT
+    def_bool $(shields_list_contains,tps65_sleepreset_right)

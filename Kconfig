@@ -1,0 +1,7 @@
+# Add-ons for the TPS65 trackpads (task 08 step 6).
+
+config ZMK_TPS65_SLEEP_RESET
+    bool "Hold the TPS65 pad in reset while the half sleeps or is soft-off"
+    default y
+    depends on DT_HAS_ZMK_TPS65_SLEEP_RESET_ENABLED
+    depends on PM_DEVICE

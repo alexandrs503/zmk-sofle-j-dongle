@@ -1,7 +1,7 @@
 /*
- * Test (task 04c step 10e E5): Azoteq TPS65 (IQS550, I2C 0x74) on the right half
- * with the AYM1607 driver (compatible "azoteq,iqs5xx").
- * Same pins as tps65_right:
+ * Azoteq TPS65 (IQS550, I2C 0x74) on the right half with the AYM1607 driver
+ * (compatible "azoteq,iqs5xx"; first tested in task 04c step 10e E5).
+ * Pins:
  *   SDA = P0.17 (P1), SCL = P0.20 (P4), RDY = P0.06 (P3), RST = P1.04 (header 1.04).
  * Version D has no display, so spi0 (nice!view) is off and its pins go to i2c1.
  */

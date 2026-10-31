@@ -10,8 +10,6 @@ manifest:
       url-base: https://github.com/tokyo2006
     - name: englmaxi
       url-base: https://github.com/englmaxi
-    - name: essenceotd
-      url-base: https://github.com/essenceotd
     - name: aym1607
       url-base: https://github.com/AYM1607
   # All modules pinned to exact commits (task 08 step 0); the branch each
@@ -72,9 +70,6 @@ manifest:
     - name: zmk-dongle-display
       remote: englmaxi
       revision: c6c4be11c5ede722086a2a1f355cec9c101b9390  # v0.3
-    - name: zmk_driver_azoteq
-      remote: essenceotd
-      revision: af570230ceb629f7b49c643e67b3e91ef4503d19
     - name: zmk-driver-azoteq-iqs5xx
       remote: aym1607
       revision: 27321f0232b50f0af31eb27ff97d539933467ea4

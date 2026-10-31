@@ -1,7 +1,7 @@
 /*
  * Dongle side of the TPS65 trackpads (tasks 04, 07).
  * The right half sends pad movement over the split link as input-split reg 1
- * (same reg as tps65_right_split in tps65_right.overlay), the left half as
+ * (tps65_right_split in tps65_right_aym.overlay), the left half as
  * reg 0 (tps65_left_split in tps65_left_aym.overlay). Both become cursor
  * movement for now; the left pad turns into scroll in task 08.
  *

@@ -5,3 +5,11 @@ config ZMK_TPS65_SLEEP_RESET
     default y
     depends on DT_HAS_ZMK_TPS65_SLEEP_RESET_ENABLED
     depends on PM_DEVICE
+
+# Dongle screen toggle key (task 09). Uses ZMK's idle blanking functions.
+config ZMK_SCREEN_TOGGLE
+    bool "Key that turns the dongle screen off and on (off at start)"
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_SCREEN_TOGGLE_ENABLED
+    depends on ZMK_DISPLAY && ZMK_DISPLAY_BLANK_ON_IDLE
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL

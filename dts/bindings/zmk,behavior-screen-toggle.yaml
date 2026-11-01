@@ -1,0 +1,8 @@
+# Task 09 (D40/D41): key that turns the dongle screen off and on.
+# The screen is off at every start.
+
+description: Toggle the dongle screen off and on
+
+compatible: "zmk,behavior-screen-toggle"
+
+include: zero_param.yaml
